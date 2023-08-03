@@ -1226,3 +1226,16 @@ def searching_area(gdf, block_width, block_height, distance_p, res):
     gdf_copy["geometry"] = gdf_copy.geometry.centroid.buffer(
         (block_width * distance_p * res) / 2.0).envelope
     return gdf_copy
+
+def merging_two_predictions(in_shp_512, in_shp_1024, in_raster, thresh_test_512, thresh_test_1024, nms_thresh, npixels):
+    res = raster.get_raster_resolution(in_raster)[0]
+    gdf_512 = gpd.read_file(in_shp_512)
+    gdf_512 = gdf_512[gdf_512.scores >= thresh_test_512]
+    gdf_512 = gdf_512[gdf_512.geometry.area >= ((res * res) * npixels)] # need at least 20 pixels, 22.4676
+    gdf_1024 = gpd.read_file(in_shp_1024)
+    gdf_1024 = gdf_1024[gdf_1024.scores >= thresh_test_1024]
+    gdf_1024 = gdf_1024[gdf_1024.geometry.area >= ((res * res) * npixels)] # need at least 10-20 pixels
+    gdf_conc = gpd.GeoDataFrame(pd.concat([gdf_512, gdf_1024], ignore_index=True)) # if index is repeated the nms will not work!
+    gdf_final = nms(gdf_conc, nms_thresh)
+    gdf_final.to_file(in_shp_1024.with_name(in_shp_1024.stem.split("-")[0] + "-boulder-predictions-merged-results.shp"))
+    return gdf_final
