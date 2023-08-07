@@ -163,3 +163,4 @@ cython_debug/
 
 src/MLtools/__pycache__/
 projects/bouldering/bouldering/__pycache__/
+__pycache__
