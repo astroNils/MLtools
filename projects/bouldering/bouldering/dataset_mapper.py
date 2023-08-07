@@ -2,7 +2,6 @@ import copy
 import imantics
 import pandas as pd
 import torch
-import yaml
 import albumentations as A
 import numpy as np
 import pycocotools.mask as mask_util
@@ -11,7 +10,7 @@ from detectron2.structures import BoxMode
 from detectron2.config import configurable
 from skimage.draw import polygon2mask
 from pathlib import Path
-from typing import Any, Union, Dict
+from typing import Any, Union
 
 __all__ = ["AlbumentMapper_polygon", "AlbumentMapper_bitmask", "load_aug_dict"]
 
