@@ -34,15 +34,34 @@ pip install -r requirements.txt
 
 ### Install Pytorch
 
+It's better to use Pytorch version 1.13.1 with Detectron2 (newer versions lead to some problem, at least this what I have experienced.). Go to the [Pytorch website, and the page where you have previous versions of Pytorch][https://pytorch.org/get-started/previous-versions/]. Here, be careful, you need to copy and paste the commands which corresponds to your OS, packaging system, if you have a graphical card or not and so forth... If you are lost, please check the "install pytorch" section on the Pytorch website. If you have a CPU, and you are installing pytorch with pip install, you need to paste the following command: 
 
+```bash
+pip install torch==1.13.1+cpu torchvision==0.14.1+cpu torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cpu
+```
 
+If you use a server or a workstation with a GPU installed on it, I would write:
 
+```bash
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
+```
 
 ### Install Detectron2
 
+```bash
+git clone https://github.com/facebookresearch/detectron2.git
+cd detectron2
+pip install -e .
+```
 
+#### Install MLtools
 
-
+```bash
+git clone https://github.com/astroNils/MLtools.git
+cd MLtools
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps MLtools_BOULDERING
+pip install -r requirements.txt
+```
 
 You should now have access to this module in Python. Note that if you have a windows machine 
 
@@ -51,7 +70,7 @@ python
 ```
 
 ```python
-import MLtools
+from MLtools import inference
 ```
 
 ## Getting Started
