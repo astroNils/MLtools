@@ -2,8 +2,10 @@ import os
 import sys
 import torch
 import detectron2.utils.comm as comm
+
+#TODO: make this python file independent of the two following paths...
 sys.path.append("/home/nilscp/GIT/")
-sys.path.append("/home/nilscp/GIT/MLtools/projects/bouldering/bouldering")
+sys.path.append("/home/nilscp/GIT/astroNils/MLtools/projects/bouldering/bouldering")
 
 
 from detectron2.config import get_cfg

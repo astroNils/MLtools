@@ -1,6 +1,6 @@
 # MLtools_BOULDERING
 
-(last updated the 7th of August 2023).
+(last updated the 8th of November 2023).
 
 MLtools is a package that gathers a collection of tools/function to 
 
@@ -8,7 +8,10 @@ This GitHub repository is written following the functional programming paradigm.
 
 ## To do
 
-- [ ] Provide Zenodo link to inputs and MLtools repos. 
+- [ ] The `is_tta` option in the prediction function is not working at the moment (ongoing debugging).
+- [ ] A new training will be soon done (including 1000+ new image patches of the lunar surface). This should hopefully improve the performances of the model at detecting boulders. Many of those image patches are originating around cold spots on the lunar surface and therefore contains secondary craters. I hope adding this data will also help in decreasing the mixing-up of craters as boulders. 
+- [ ] Several semantic segmentation models (and other instance segmentation models) will be tested in the next coming months. 
+- [ ] A "leaderboard" of the performances of the different algorithms will be gathered in a markdown file. 
 
 ## Installation
 
