@@ -10,9 +10,10 @@ This GitHub repository is written following the functional programming paradigm.
 
 - [ ] The `is_tta` option in the prediction function is not working at the moment (ongoing debugging).
 - [ ] A new training will be soon done (including 1000+ new image patches of the lunar surface). This should hopefully improve the performances of the model at detecting boulders. Many of those image patches are originating around cold spots on the lunar surface and therefore contains secondary craters. I hope adding this data will also help in decreasing the mixing-up of craters as boulders. 
+- [ ] Test training of Mask R-CNN with ResNet101 backbone. 
 - [ ] Several semantic segmentation models (and other instance segmentation models) will be tested in the next coming months. 
 - [ ] A "leaderboard" of the performances of the different algorithms will be gathered in a markdown file. 
-
+- [ ] Train the Segment Anything Model (SAM) of Meta on the collected boulder data (will help in collecting more data in the future). 
 ## Installation
 
 Create a new environment if wanted. In order for MLtools to work you need to install rastertools, shptools, Pytorch, Detectron2 (https://github.com/facebookresearch/detectron2) and then all the dependencies in the MLtools repository (found in requirements.txt). 
@@ -66,7 +67,7 @@ python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps MLtoo
 pip install -r requirements.txt
 ```
 
-You should now have access to this module in Python. Note that if you have a windows machine 
+You should now have access to this module in Python. 
 
 ```bash
 python
@@ -82,9 +83,21 @@ A jupyter notebook is provided as a tutorial ([GET STARTED HERE](./resources/nb/
 
 ## Citing BOULDERING
 
-If you use MLtools in your research or wish to refer to the baseline results published in TBD, please use the following citation entry.
+If you use MLtools and the BOULDERING algorithm in your research or wish to refer to the dataset or baseline results published in the Journal of Geophysical Research: Planets, please use one of the following citation entries:
 
+**Article:**
 
+> Prieur, N. C., Amaro, B., Gonzalez, E., Kerner, H., Medvedev, S., Rubanenko, L., S. C., Werner, Z. Xiao,  D., Zastrozhnov, M. G. A., Lapôtre (2023a). Automatic characterization of boulders on planetary surfaces from high-resolution satellite images. Journal of Geophysical Research: Planets, 128, e2023JE008013. https://doi.org/10.1029/2023JE008013.
+
+**Dataset:**
+
+> Prieur, N. C., Amaro, B., Gonzalez, E., Kerner, H., Medvedev, S., Rubanenko, L., S. C., Werner, Z. Xiao,  D., Zastrozhnov, M. G. A., Lapôtre (2023b). Input and output data (images + boulder labels, model setup, model weights and more) for the manuscript "Automatic characterization of boulders on planetary surfaces from high-resolution satellite images" v0.0.1 [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.8171052.
+
+**Software (MLtools):**
+
+> Prieur, N. C., Amaro, B., Gonzalez, E., Kerner, H., Medvedev, S., Rubanenko, L., S. C., Werner, Z. Xiao,  D., Zastrozhnov, M. G. A., Lapôtre (2023c). Python code for the manuscript "Automatic characterization of boulders on planetary surfaces from high-resolution satellite images” v0.0.1 [Software]. Zenodo. https://doi.org/10.5281/zenodo.8367599.
+
+I will try to upload frequently the latest version of the code (a.k.a this Github repository) on Zenodo, but the master branch will always be the most up-to-date working version of the algorithm (hopefully :). 
 
 
 
