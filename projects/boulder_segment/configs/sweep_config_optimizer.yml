@@ -1,0 +1,37 @@
+name: optimizer_sweep
+program: train.py
+method: grid
+metric:
+  goal: maximize
+  name: valid_per_image_iou
+parameters:
+  arch: 
+    value: Unet
+  encoder_name: 
+    value: resnet34
+  encoder_weights: 
+    value: imagenet
+  in_channels: 
+    value: 3
+  out_classes:
+    value: 1
+  optimizer_name: 
+    values: [Adam, RAdam, AdamW, SGD]
+  augmentations:
+    value: block1
+  loss_fn_name: 
+    value: DiceLoss
+  scheduler_name:
+    value: CosineAnnealingLR
+  max_epochs: 
+    value: 50
+  patience_or_cycle_length:
+    value: 5
+  milestones:
+    value: False
+  lr:
+    value: 0.001
+  lr_min:
+    value: 0.00001
+  batch_size:
+    value: 8

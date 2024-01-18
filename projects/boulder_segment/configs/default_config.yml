@@ -1,0 +1,15 @@
+arch: Unet
+encoder_name: resnet34
+encoder_weights: imagenet
+in_channels: 3
+out_classes : 1
+optimizer_name: Adam
+augmentations: block1
+loss_fn_name: DiceLoss
+scheduler_name: CosineAnnealingLR
+max_epochs: 10
+patience_or_cycle_length: 5
+milestones: False
+lr: 0.01
+lr_min: 0.00001
+batch_size: 8
